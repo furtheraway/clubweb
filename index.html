@@ -1,0 +1,166 @@
+<!doctype html>
+<html class="no-js" ng-app="webApp">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+  <!-- build:css(.) styles/vendor.css -->
+  <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
+  <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.css" />
+  <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
+  <!-- endbuild -->
+  <!-- build:css(.tmp) styles/main.css -->
+  <link rel="stylesheet" href="styles/main.css" />
+  <!-- endbuild -->
+  <title>XCHANGE COOP</title>
+</head>
+
+<body>
+  <!--[if lt IE 7]>
+  <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+  <![endif]-->
+
+  <!-- The blue header bar with menu using ng-include-->
+  <header layout='vertical' ng-include="'/views/header.html'"></header>
+
+  <div id='content-wrapper' ng-controller="BlockCtrl">
+    <div id='intro-wrapper' layout='vertical'>
+      <div id='intro-bg'></div>
+      <div class="stack-top"></div>
+      <div layout='horizontal'>
+        <div id="intro" flex='100' flex-sm='70'>
+          <div layout-md='horizontal' layout='vertical' offset="5" flex>
+            <div layout='horizontal'>
+              <span class='intro-init'>
+                E<span style='color:#317DCF;font-weight:400'>X</span>change</span>
+            </div>
+            <div id='text-1' layout='vertical' layout-align='center'>
+              <div class='intro-text'>
+                knowledge, experiences, ideas, opinions
+              </div>
+            </div>
+          </div>
+          <div layout-md='horizontal' layout='vertical' offset="10">
+            <div class='intro-init'>
+              <span style='color:#317DCF;font-weight:400'>C</span>ollaborate
+            </div>
+            <div id='text-2' layout='vertical' layout-align='center'>
+              <div class='intro-text'>on research, work and life.</div>
+            </div>
+          </div>
+        </div>
+        <!-- #intro end -->
+      </div>
+      <div class="stack-top"></div>
+      <div id='goto' layout='vertical'>
+        <div layout='horizontal' layout-align='center center'>
+          <div>Go to our</div>
+          <div>
+            <span id='forum-button'>
+              <a href='https://discourse.sbufellows.com'>forum</a>
+            </span>
+          </div>
+        </div>
+        <div layout='horizontal' layout-align='center center'>
+          <div style='color:green'>
+            <b>Feb. event</b>
+          </div>
+          <div>
+            <span id='forum-button' ng-click="showSignUp()">
+              SignUp
+            </span>
+          </div>
+        </div>
+      </div>
+      <!-- #goto end -->
+    </div>
+
+    <!-- The sign up section -->
+    <!-- <div ng-include="'/views/signup.html'"></div> -->
+    <iframe src="http://worldsheet.org/app/activity-signup/?activity=Build%20a%20website%20in%2060%20minutes" frameborder="0"
+        style='width:100%;height:500px;'>
+    </iframe>
+
+    <!-- Begin the information blocks in lower parts of the page -->
+    <div id="info" layout='vertical'>
+      <div class="info-block" id='info-block-1' layout='vertical'>
+        <div class='stack-top'></div>
+        <div class='info-title' offset='5'>
+          Did you know?
+        </div>
+        <div offset="5">
+          <p>You have enormous resources around you.
+            <p>People, with <b>knowledge, experiences, ideas</b>. People with passion, energy and visions.
+              <p>More importantly, there are people from different different academic backgrounds, nations, cultures.
+        </div>
+      </div>
+      <div class="info-block" id='info-block-2' layout='vertical' layout-padding>
+        <div class="stack-top"></div>
+        <div layout="horizontal" layout-align="end">
+          <div class="info-title">A Platform</div>
+        </div>
+        <div layout="horizontal" layout-align="end">
+          <p style='color:#666666'>We devote ourselves to building a platform, where people share, learn and collaborate.
+        </div>
+      </div>
+
+    </div>
+    <!-- #info end -->
+  </div>
+  <!-- content-wrapper end -->
+
+  <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+
+  <script>
+  (function(i, s, o, g, r, a, m) {
+    i['GoogleAnalyticsObject'] = r;
+    i[r] = i[r] || function() {
+      (i[r].q = i[r].q || []).push(arguments)
+    }, i[r].l = 1 * new Date();
+    a = s.createElement(o),
+    m = s.getElementsByTagName(o)[0];
+    a.async = 1;
+    a.src = g;
+    m.parentNode.insertBefore(a, m)
+  })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+  ga('create', 'UA-56185956-1', 'auto');
+  ga('send', 'pageview');
+  </script>
+
+  <!-- build:js(.) scripts/oldieshim.js -->
+  <!--[if lt IE 9]>
+  <script src="bower_components/es5-shim/es5-shim.js"></script>
+  <script src="bower_components/json3/lib/json3.min.js"></script>
+  <![endif]-->
+  <!-- endbuild -->
+
+  <!-- build:js(.) scripts/vendor.js -->
+  <!-- bower:js -->
+  <script src="bower_components/jquery/dist/jquery.js"></script>
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/json3/lib/json3.js"></script>
+  <script src="bower_components/angular-resource/angular-resource.js"></script>
+  <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+  <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+  <script src="bower_components/angular-animate/angular-animate.js"></script>
+  <script src="bower_components/angular-touch/angular-touch.js"></script>
+  <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="bower_components/hammerjs/hammer.js"></script>
+  <script src="bower_components/angular-material/angular-material.js"></script>
+  <script src="bower_components/jquery-ui/jquery-ui.js"></script>
+  <script src="bower_components/angular-parse/angular-parse.js"></script>
+  <script src="bower_components/angular-loading-bar/build/loading-bar.js"></script>
+  <!-- endbower -->
+  <!-- endbuild -->
+
+  <!-- build:js({.tmp,app}) scripts/scripts.js -->
+  <script src="scripts/app.js"></script>
+  <script src="scripts/services/registration.js"></script>
+  <script src="scripts/controllers/block.js"></script>
+  <script src="scripts/controllers/sign_up.js"></script>
+  <script src="scripts/controllers/name_tags.js"></script>
+  <!-- endbuild -->
+</body>
+</html>
