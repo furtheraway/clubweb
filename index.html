@@ -1,166 +1,476 @@
-<!doctype html>
-<html class="no-js" ng-app="webApp">
+<!DOCTYPE html>
+<html lang="en-us">
 <head>
-  <meta charset="utf-8">
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width">
-  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+	<title>XChange Coop</title>
+	<base target="_blank">
+	<!-- Define keywords for search engines: -->
+	<meta charset="UTF-8">
+	<meta name="keywords" content="exchange, knowledge, interdisciplinary, graduate students, stony brook university">
 
-  <!-- build:css(.) styles/vendor.css -->
-  <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
-  <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.css" />
-  <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
-  <!-- endbuild -->
-  <!-- build:css(.tmp) styles/main.css -->
-  <link rel="stylesheet" href="styles/main.css" />
-  <!-- endbuild -->
-  <title>XCHANGE COOP</title>
+	<meta name="description" content="interdisciplinary graduate student club, dedicated to promoting more accessible collaborations among graduate students at Stony Brook University">
+	<meta name="author" content="club eboard"> 
+
+	<!-- my own CSS style sheet -->
+	<!-- <link rel="stylesheet" href="../layout.css"> -->
+
+	<!-- make earlier IE versions to recognize HTML 5, keep the following comment -->
+	<!--[if lt IE 9]>
+	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+	<!-- Angluar Material -->
+	<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/0.7.0/angular-material.min.css">
+	<!-- Bootstrap -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	
+<style>
+	.clip-me {clip-path: circle(30px at 35px 35px); }
+	body p, html p {line-height: 1.4;}
+	hr {border:1px solid royalblue; margin: 0 auto;}
+	author {font-size:90%; font-family: serif; font-style:italic;}
+	
+	/* p size in different sections */
+	section#activities p {font-size: 16px; margin-left:50px;}
+	section#activities ul {font-size: 16px; margin-left:-15px;}
+
+	/* Colors in Theme */
+	.theme_wc {color:dodgerblue;} /*theme word color*/
+	.white_wc {color:white !important; font-weight:bold !important;} /* white word against colored bg*/
+	.theme_bc0 {background-color:;} /* used for the biggest container */
+	.theme_bc {background-color:royalblue;} /*theme background color */
+	.theme_brc {border-color: royalblue;} /*theme background color */
+	.container {border:3px solid royalblue;}
+	 h1 {color:royalblue; font-weight: bold;letter-spacing:2px;margin-top: 50px; margin-left: 15px;}
+	 strong {color:white; font-size:30px;}
+	.theme_bc1 {background-color:dodgerblue;} /*theme background color 1*/
+	.theme_bc2 {background-color:dodgerblue;} /*theme background color 2*/
+	
+	/* Background alternating colors */
+	section > div {padding: 10px 15px; margin: 0px auto !important;}
+	section#projects > div:nth-child(even), section#history > div:nth-child(even), section#activities > div:nth-child(even), #did_you_know {background-color:royalblue;color:white; }
+    section#projects > div:nth-child(odd), section#history > div:nth-child(odd), section#activities > div:nth-child(odd) {background-color:white;color:darkblue; border:3px solid royalblue;border-width: 2px 0;}
+	/* link color change due to background */
+	section#projects > div:nth-child(even) a, section#history > div:nth-child(even) a, section#activities > div:nth-child(even) a {color:lightgray;}
+
+	/*border color */
+	section { margin:0 -15px;}
+
+	/* usage of @media, which change the display style based on windowsize */
+	@media screen and (max-width: 800px) {
+	    .navbar-fixed-top {position: static; }
+	}
+
+	.rotate {
+    -ms-transform: rotate(45deg); /* IE 9 */
+    -webkit-transform: rotate(45deg); /* Safari */
+	transform: rotate(45deg);
+	}
+
+</style>
+	
+
+
 </head>
 
-<body>
-  <!--[if lt IE 7]>
-  <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-  <![endif]-->
+<body >
 
-  <!-- The blue header bar with menu using ng-include-->
-  <header layout='vertical' ng-include="'/views/header.html'"></header>
 
-  <div id='content-wrapper' ng-controller="BlockCtrl">
-    <div id='intro-wrapper' layout='vertical'>
-      <div id='intro-bg'></div>
-      <div class="stack-top"></div>
-      <div layout='horizontal'>
-        <div id="intro" flex='100' flex-sm='70'>
-          <div layout-md='horizontal' layout='vertical' offset="5" flex>
-            <div layout='horizontal'>
-              <span class='intro-init'>
-                E<span style='color:#317DCF;font-weight:400'>X</span>change</span>
-            </div>
-            <div id='text-1' layout='vertical' layout-align='center'>
-              <div class='intro-text'>
-                knowledge, experiences, ideas, opinions
-              </div>
-            </div>
-          </div>
-          <div layout-md='horizontal' layout='vertical' offset="10">
-            <div class='intro-init'>
-              <span style='color:#317DCF;font-weight:400'>C</span>ollaborate
-            </div>
-            <div id='text-2' layout='vertical' layout-align='center'>
-              <div class='intro-text'>on research, work and life.</div>
-            </div>
-          </div>
-        </div>
-        <!-- #intro end -->
-      </div>
-      <div class="stack-top"></div>
-      <div id='goto' layout='vertical'>
-        <div layout='horizontal' layout-align='center center'>
-          <div>Go to our</div>
-          <div>
-            <span id='forum-button'>
-              <a href='https://discourse.sbufellows.com'>forum</a>
-            </span>
-          </div>
-        </div>
-        <div layout='horizontal' layout-align='center center'>
-          <div style='color:green'>
-            <b>Feb. event</b>
-          </div>
-          <div>
-            <span id='forum-button' ng-click="showSignUp()">
-              SignUp
-            </span>
-          </div>
-        </div>
-      </div>
-      <!-- #goto end -->
-    </div>
+<div class="container theme_bc0">
 
-    <!-- The sign up section -->
-    <!-- <div ng-include="'/views/signup.html'"></div> -->
-    <iframe src="http://worldsheet.org/app/activity-signup/?activity=Build%20a%20website%20in%2060%20minutes" frameborder="0"
-        style='width:100%;height:500px;'>
-    </iframe>
+<!-- navigation bar fix at top--------------------------------------- -->
+<nav class="navbar navbar-default navbar-fixed-top theme_bc">
+	<!-- <nav class="navbar navbar-inverse navbar-fixed-bottom"> -->
+	<div layout='row' layout-xs="column" layout-align='space-between center'>
+		<div class="navbar-header white_wc" align="left">
+			<a class="navbar-brand white_wc" target="_self" href="#" style="font-size:22px;" >XCHANGE COOP</a>
+		</div>
+		<div>
+			<ul class="nav navbar-nav" style="font-size:15px;">
+				<!-- <li class="active"><a href="#">Home</a></li> -->
+				<li><a class="white_wc" target="_self" href="#hr_above_about">About Us</a></li>
+				<li><a class="white_wc" target="_self" href="#hr_above_activities">Activities</a></li>
+				<li><a class="white_wc" target="_self" href="#hr_above_people">People</a></li>
+				<li><a class="white_wc" target="_self" href="#hr_above_projects">Projects</a></li>
+				<li><a class="white_wc" target="_self" href="#hr_above_history">Past Event</a></li>
+				<!-- <li><a href="#">People</a></li> -->
+				<!-- <li><a href="#">Facebook</a></li> -->
+			</ul>
+		</div>
+	</div>
+</nav>
 
-    <!-- Begin the information blocks in lower parts of the page -->
-    <div id="info" layout='vertical'>
-      <div class="info-block" id='info-block-1' layout='vertical'>
-        <div class='stack-top'></div>
-        <div class='info-title' offset='5'>
-          Did you know?
-        </div>
-        <div offset="5">
-          <p>You have enormous resources around you.
-            <p>People, with <b>knowledge, experiences, ideas</b>. People with passion, energy and visions.
-              <p>More importantly, there are people from different different academic backgrounds, nations, cultures.
-        </div>
-      </div>
-      <div class="info-block" id='info-block-2' layout='vertical' layout-padding>
-        <div class="stack-top"></div>
-        <div layout="horizontal" layout-align="end">
-          <div class="info-title">A Platform</div>
-        </div>
-        <div layout="horizontal" layout-align="end">
-          <p style='color:#666666'>We devote ourselves to building a platform, where people share, learn and collaborate.
-        </div>
-      </div>
 
-    </div>
-    <!-- #info end -->
-  </div>
-  <!-- content-wrapper end -->
+<!-- header with background picture -->
+<div class="row"  style="background:url('images/intro-bg.png');background-size:100% auto;background-repeat: no-repeat; margin-top:50px; height:500px;">
 
-  <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+	<!-- <div flex=70 layout="column" layout-align="space-around start" style="height:450px;color:#404040;"> -->
+	<p class="col-xs-9" style="font-size:2em;font-family:serif;text-shadow: 2px 2px 0px white;margin:65px 0 0 0;">
+		<span style="font-size:160%;">E<span class="theme_wc">X</span>change</span> knowledge, skills, experiences, ideas...
+	</p>
 
-  <script>
-  (function(i, s, o, g, r, a, m) {
-    i['GoogleAnalyticsObject'] = r;
-    i[r] = i[r] || function() {
-      (i[r].q = i[r].q || []).push(arguments)
-    }, i[r].l = 1 * new Date();
-    a = s.createElement(o),
-    m = s.getElementsByTagName(o)[0];
-    a.async = 1;
-    a.src = g;
-    m.parentNode.insertBefore(a, m)
-  })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
-  ga('create', 'UA-56185956-1', 'auto');
-  ga('send', 'pageview');
-  </script>
+	<p class="col-xs-9" style="font-size:2em;font-family:serif;text-shadow: 2px 2px 0px white;margin:65px 0 0 30px;">
+	<span style="font-size:160%;"><span class="theme_wc">C</span>ollaborate</span> on research, work and life. </p>
+	
+	<p class="col-xs-12" style="font-size:2em;font-family:Arial,serif;text-shadow: 2px 2px 0px white;font-size:160%;margin:115px 0 10px 0;">[<span class="theme_wc">XChange Coop</span>] -- Dedicated to more Accessible Collaborations among Graduate Students.</p>
+	<!-- </div> -->
 
-  <!-- build:js(.) scripts/oldieshim.js -->
-  <!--[if lt IE 9]>
-  <script src="bower_components/es5-shim/es5-shim.js"></script>
-  <script src="bower_components/json3/lib/json3.min.js"></script>
-  <![endif]-->
-  <!-- endbuild -->
+</div>
+	
 
-  <!-- build:js(.) scripts/vendor.js -->
-  <!-- bower:js -->
-  <script src="bower_components/jquery/dist/jquery.js"></script>
-  <script src="bower_components/angular/angular.js"></script>
-  <script src="bower_components/json3/lib/json3.js"></script>
-  <script src="bower_components/angular-resource/angular-resource.js"></script>
-  <script src="bower_components/angular-cookies/angular-cookies.js"></script>
-  <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
-  <script src="bower_components/angular-animate/angular-animate.js"></script>
-  <script src="bower_components/angular-touch/angular-touch.js"></script>
-  <script src="bower_components/angular-route/angular-route.js"></script>
-  <script src="bower_components/hammerjs/hammer.js"></script>
-  <script src="bower_components/angular-material/angular-material.js"></script>
-  <script src="bower_components/jquery-ui/jquery-ui.js"></script>
-  <script src="bower_components/angular-parse/angular-parse.js"></script>
-  <script src="bower_components/angular-loading-bar/build/loading-bar.js"></script>
-  <!-- endbower -->
-  <!-- endbuild -->
+<!-- Reserve for sign in link, or Coming event -->
+<!-- <p style="text-align:center;" class="theme_wc"> Regular event: Special event: regular, every Friday/Saturday.  If you need to be assured, email us at xchange.coop@gmail.com</p>
+<hr> -->
 
-  <!-- build:js({.tmp,app}) scripts/scripts.js -->
-  <script src="scripts/app.js"></script>
-  <script src="scripts/services/registration.js"></script>
-  <script src="scripts/controllers/block.js"></script>
-  <script src="scripts/controllers/sign_up.js"></script>
-  <script src="scripts/controllers/name_tags.js"></script>
-  <!-- endbuild -->
+<section style="font-size:20px;font-family:sans-serif;text-align:center;" >
+<hr id="hr_above_about">
+<!-- About US ---------------------------------------- -->
+<h1 id="about" style="text-align:left;">About Us:</h1> <hr>
+<hr>
+	<div style="background-color:royalblue; color:lightgray;">
+		<div style="width:80%; min-width:400px; max-width:800px; margin:0 auto;">	<p style="text-align:center;margin-top:10px;"><span style="font-family:serif;font-size:25px;">I</span>n this club, We are trying to <strong>Break Down</strong> the unnecessary <strong>Boundaries</strong> between different <b>[Academic Disciplines]</b>, between <b>[School and Industry]</b>, between <b>[Employment and Entrepreneurship]</b>, and between <b>[Countries, Languages, Cultures]</b>, ... and between <strong>[PEOPLE]</strong>, to make collaborations more <b>Accessible</b>.</p>-<p><strong>BUT</strong>, we <b>don't know</b> how to make this happen.<br>All we are doing is just keep testing different <b>Hypothesis</b>.</p>- <p><b>Fortunately</b>, we do know where the solution is: It lies in you!<br>Yes, everyone of <strong>[YOU]</strong></p> <p>Join us, explore and grow with us.</p>
+		</div>
+	</div>
+	<hr>
+	
+<h2>3 Levels of Purposes</h2>
+	<!-- <div layout="row" layout-align="center center" style="margin:20px auto;">    -->
+	<div class="row" style="margin:20px auto; width:80%;font-size:18px;">
+		<div class="col-xs-12 col-sm-4 theme_brc" style="border-style:solid;border-width: 2px 1px 2px 2px;border-radius:15px 0 0 15px;height:150px;">
+			<p style="border:solid;border-width:0 0 2px 0;padding:0.15em;">Open Horizon</p>- appreciate diversity<br>- see the world w/o travelling</div>
+		<div class="col-xs-12 col-sm-4 theme_brc" style="border-style:solid;border-width: 2px 1px 2px 1px;height:150px;">
+		<p style="border:solid;border-width:0 0 2px 0;padding:0.15em;">Skill Exchange</p> - shorten PhD learning curve<br>- speed up your research</div>
+		<div class="col-xs-12 col-sm-4 theme_brc" style="border-style: solid;border-width: 2px 2px 2px 1px;border-radius:0 15px 15px 0;height:150px;"> <p style="border:solid;border-width:0 0 2px 0;padding:0.15em;">Build a Team</p> - find friends to start a career with</div> 
+	</div>
+
+	<!-- Acknowledgement of each one's work and talent.
+		Anti-leadership, every one can be a leader, collaborator
+		develop soft skills, teamwork, and 
+		acknowledgment and everybody leadership -->
+
+<div id="did_you_know" style="text-align:left; background-color:royalblue;">
+	<h2>Did you know?</h2>
+	<p>You have enormous resources around you.</p>
+	<p>People, with <b>knowledge, experiences, ideas</b>. People with passion, energy and visions.</p>
+	<p>More importantly, there are people from different academic backgrounds, nations, cultures. </p>
+</div>
+
+<div>
+	<h2 style="text-align:right;">A Platform</h2>
+	<p style="text-align:right;">We devote ourselves to building a platform, where people share, learn and collaborate.</p>
+</div>
+<br>
+</section> 
+
+
+
+<!-- Activities ---------------------------------------- -->
+<section id="activities">
+<hr  id="hr_above_activities">
+	<h1>Activities<span style="font-size:70%;"> -- Hypothesis being or to be tested:</span></h1> <hr>
+	
+<div>
+	<h2>"Beyond the Names" -- informational discussion</h2> 
+	<ul style="list-style-type:circle; max-width:700px; margin-left:30px;">
+	<li>A special weekly "social hours" where you go beyond the names to explore/exchange different majors/professions.</li>
+    <li>To understand people's expertise well enough so that we could possibly work with each other.</li>
+    </ul>
+	<p style="text-align:right;">Time: 5.30pm-7.00pm Fridays. <a href="images/location_spring_2015.png" style="color:white;">LOCATIONS.</a></p></div> 
+
+<div><h2>Presentation Series</h2> 
+	<ul style="list-style-type:circle; max-width:700px; margin-left:30px;">
+	<li>Share your expertise and professional skills</li>
+	<li>Promote ideas and look for potential teammates</li>
+    <li>Educate the public and spread awareness</li>
+    <li>Rehearse for your big day and get valuable feedback.</li>
+    </ul>
+	<h3 style="max-width:700px; margin-left:30px;">We have the stage. You claim it. Come and put on your show!</h3>
+	<p style="text-align:right;">Time and Location: up to speakers (<a href="https://discourse.sbufellows.com/t/event-structure/50">BE ONE</a>)</p>
+	</div>
+	
+<div>
+	<h2>Meet an Expert</h2>
+	<h3 style="margin-left:30px;">"Everything Help Center" -- a help center for everybody</h3>
+	<p style="max-width:700px;">The best way to learn is to learn from an expert.<br>Every person is surely an <b>Expert</b> in some fields, but at the same time, a <b>Dummy</b> in many others.<br>
+	So, let us, the dummies and experts, learn from each other.</p>
+
+	<div style="border: 1px solid lightgray; width:80%; height:150px; margin:auto auto;border-radius:15px;text-align:center;"><h3>See who is coming, and what skills they have, and what help they need. <br>match skills with demands <br> <br>... in developing, Join us!</h3>
+	</div>
+
+	<p style="text-align:right;">Give someone a hand on Friday night. That must be a lot of Fun! Ha~</p>
+	</div>
+
+<div>
+	<h2>"Build Your Team" -- pre-incubator</h2> 
+	<ul style="list-style-type:circle; max-width:700px; margin-left:30px;">
+	<li>Anyone can be an inventor and entrepreneur. All you need is a team to do it.</li>
+    <li>Try to find people with complementary skills and the same passion to start something challenging, meaningful and fun.</li>
+    <li title="Current team projects in SBU">Also, people are looking for you! Follow your passion, <a href="#hr_above_projects">Find a Team</a>.</li>
+    </ul>
+	<p style="text-align:right;">Keep searching, Anywhere, Anytime.</a></p></div>
+
+	
+<div><h2>"Loners Club" <small>-- Yes, you are a loner, but you are not alone!</small></h2>
+	<p style="max-width:700px;">Constantly have a lot of things must-to-do, but sometimes don't want to do any of them. I know what I have to do, but still keep inventing excuses not doing it.</p>
+	<p style="max-width:700px;">Come and see someone who feels the same in your campus. We talk a little bit, re-assure ourselves "Yes I must and Yes I can!", and go through our to-do things together. It's a silent mutual spiritual sport to each other. It requires courage to admit being week. Feel free to say it here. </p>
+
+	<h3 style="margin-left:30px;">Graduate school can be tough, depressing and overwhelming. but you are definitely not alone. </h3>
+
+	<div style="border: 1px solid lightgray; width:80%; height:150px; margin:auto auto;border-radius:15px;text-align:center;"><h3>Need a mechanism to bring people together with minimal communication cost. <br> <br>... in developing, Join us!</h3></div>
+	</div>
+<br>
+</section> 
+
+
+
+
+<!-- Section People ------------------------------------------------- -->
+<section id="people">
+<hr id="hr_above_people">
+	<h1>People:</h1> <hr>
+
+	<!-- <div layout="row" layout-align="start center" layout-xs="column" layout-wrap layout-margin > -->
+	<div class="row">		
+		<a class="col-md-3 col-sm-4 col-xs-6" href="people/youquan.html" target="_blank">
+			<div alt="You Quan Chong" style="width:200px;height:200px;border-radius:50%;background:url(images/You_Quan.jpeg) no-repeat local 0 0; background-size: 200px 200px;"> </div>
+			<figcaption>You Quan Chong<br>President</figcaption>
+		</a>
+		<a class="col-md-3 col-sm-4 col-xs-6" href="people/jun.html" target="_blank">
+			<div alt="Jun Duan" style="width:200px;height:200px;border:1px solid gray; border-radius:50%;background:url(images/Jun.png) no-repeat local 0 10px; background-size: 200px 200px;"> </div>
+			<figcaption>Jun Duan<br>Vice President</figcaption>
+		</a>	
+		<a class="col-md-3 col-sm-4 col-xs-6" href="people/hardy.html" target="_blank">
+			<div alt="Hardy Wu" style="width:200px;height:200px;border-radius:50%;background:#493D26 url(images/Hardy.jpeg) no-repeat local 10px 10px; background-size: 180px 270px;"> </div>
+			<figcaption>Hardy Wu<br>Treasure</figcaption>
+		</a>
+		<a class="col-md-3 col-sm-4 col-xs-6" href="people/YOU.html" target="_blank">
+			<div alt="Your pic" style="width:200px;height:200px;border-radius:50%;background:url(images/You2.jpeg) no-repeat local 0 0px; background-size: 200px 200px;"> </div>
+			<figcaption>You Name<br>Join Eboard</figcaption>
+		</a>
+		
+
+	</div>
+
+	<!-- <div layout="row" layout-align="start center" layout-xs="column" layout-wrap layout-margin > -->
+	<div class="row">
+		<a class="col-md-3 col-sm-4 col-xs-6" href="people/john.html" target="_blank"  style="margin-left:;">
+			<div alt="Yuan(John) Yao" style="width:200px;height:200px;border-radius:50%;background:url(images/John.JPG) no-repeat local -150px -30px; background-size: 480px 270px;"> </div>
+			<figcaption>John Yao<br>Former President</figcaption>
+		</a>
+		<a class="col-md-3 col-sm-4 col-xs-6" href="http://airoswell.byethost8.com/" target="_blank">
+			<div alt="Yiwen Pan" style="width:200px;height:200px;border-radius:50%;background:url(images/Yiwen.jpg) no-repeat local 20px -10px; background-size: 240px 240px;"> </div>
+			<figcaption>Yiwen Pan<br>VIP</figcaption>
+		</a>
+
+		<a class="col-md-3 col-sm-4 col-xs-6" href="people/YOU.html" target="_blank">
+			<div alt="Your pic" style="width:200px;height:200px;border-radius:50%;background:url(images/You1.jpeg) no-repeat local 0 0px; background-size: 200px 200px;"> </div>
+			<figcaption>You! You!<br></figcaption>
+		</a>
+	</div>
+	<br>
+</section> 
+
+
+<!-- Projects going on in SBU ------------------------------------------>
+
+<section id="projects">
+	<hr id="hr_above_projects">
+	<h1>Current Projects:</h1> <hr>
+	
+	<p style="font-size:18px; margin:10px;" class="theme_wc">The xchange club, by no means, claims the ownership of the following projects. But you can find their team members in this club.</p>
+
+	<div layout="row" layout-align="start center" layout-margin layout-padding >
+		<div style="width:100px; height:100px; border:2px solid gray; border-radius:10px;background:url(images/XC_logo.png) no-repeat local 5px 5px; background-size: 90px 90px;"></div>
+		<div flex style="font-size:16px;">Of course, the first project is this club itself. You see several in-developing parts of this web, and many errors and non-perfect things. Not just technical staff, to plan and carry out events requires much more skills and efforts. If you like this course, join us. The solution lies right in [You]!</div>
+	</div>
+	
+	<div layout="row" layout-align="start center" layout-margin layout-padding >
+		<div style="width:100px; height:100px; border:2px solid gray; border-radius:10px; margin-left:20px; background-color:#F87431;"><p style="font-size:18px;color:white;font-family:serif;margin-top:20px;text-align:center;font-weight:bold;">Khan  for<br>Graduates</p></div>
+		<div flex>Graduate school tutorial series. No need to re-invent the while. Learn a new skill efficiently under the guidance of a professional/expert (the person who has went through it, and would like to guide.) e.g. matlab, R, Linux, SAS, C++ etc. 
+		Instructors, instead of re-teaching the same contents every year, why not make a video series about your class, it can be gradually be perfected along years, and you can spare more time to care for individual students.
+
+	Every one can be a Khan for university students, and use's other Khan's tutorial to make life easier.</div>
+	</div>
+	
+	<div layout="row" layout-align="start center" layout-margin layout-padding >
+		<div style="width:100px; height:100px; border:2px solid gray; border-radius:10px;background:url(images/worldsheet.jpeg) no-repeat local 0 0; background-size: 100px 100px;"></div>
+		<div flex style="font-size:16px;"><p>Worldsheet for reuse and recycle our stuff, and keep a Timeline for anything.</p><a href="http://www.worldsheet.org"><p>www.worldsheet.org</p></a></div>
+	</div>
+	
+
+	<div layout="row" layout-align="start center" layout-margin layout-padding >
+		<div style="width:100px; height:100px; border:2px solid gray; border-radius:10px; margin-left:20px;background-color:gray;"><p class="rotate" style="font-size:38px;color:orange;font-family:serif;margin:15px 0 0 -4px;">Mattle</p></div>
+		<div flex style="font-size:16px;">Local on-off-line Google, the NEXT thing after Searching is Matching. <br>The world is centered around matching products with demands, offers with needs, skills with applications, efforts with acknowledgments etc.</div>
+	</div>
+	<br>
+</section>
+
+
+<!-- History ------------------------------------------------- -->
+
+<section id="history">
+	<hr id="hr_above_history">
+	<h1 >Events History:</h1> <hr>
+	<p style="font-size:18px; margin:10px;" class="theme_wc"> If you missed the event, but still be interested to speak with the spreakers for comments or help, feel free to contact the speaker. Email address can be find by clicking their names.</p>
+	<div layout="column" layout-align="space-between" layout-sm="column" layout-wrap layout-margin>
+		<div layout="row" layout-align="space-between center" layout-sm="column">	
+
+			<div flex-order-sm="2" class="col-sm-8">
+				<h2>Queer(ing) Pornography: BDSM, Boys’ Love, & Fifty Shades of Grey<author> --- <a href="mailto:michelle.ho@stonybrook.edu">Michelle Ho</a></author> and <author><a href="mailto:hohoclaire@gmail.com">Claire Yu</a></author></h2>
+				<p>Topics discussed from culture study perspective:</p>
+				<ul>
+					<li>What “counts” as pornography or “perverse” desires? Where do we draw the line with censorship?</li>
+					<li>What is BDSM? What is boys’ love? Why is Fifty Shades of Grey so popular?</li>
+					<li>What do Fifty Shades of Grey and boys’ love have (or not have) in common?</li>
+					<li>Does Fifty Shades of Grey empower women or does it perpetuate violence against women?</li>
+					<li>Does boys’ love misrepresent male homosexuality? Is boys’ love only read by heterosexual women?</li>
+				</ul>
+		</div>
+
+		<a flex-order-sm="1" href="event_history/Queering_pron_BDSM_culture_study.png" target="_blank">
+			<img src="event_history/Queering_pron_BDSM_culture_study.png" alt="Queering_pron_BDSM_culture_study.png" style="height:200px;width:280px;border: 1px solid lightgrey; border-radius:15px;">
+		</a>
+
+		</div>
+	</div>
+
+
+	<div layout="column" layout-align="space-between" layout-sm="column" layout-wrap layout-margin >
+		<div layout="row" layout-align="space-between center" layout-sm="column">	
+
+			<a href="event_history/quantum_computing_poster5.png" target="_blank">
+				<img src="event_history/quantum_computing_poster5.png" alt="Event: Demystifying the Quantum" style="height:200px;width:280px;border: 1px solid lightgrey; border-radius:15px;">
+			</a>
+	
+			<div class="col-sm-8">
+				<h2>Demystifying the Quantum <author>--- <a href="mailto:chongyouquan@gmail.com">You Quan Chong</a></author></h2>
+				
+				<p>Ever had burning questions on what quantum physics really is? Ever wondered about what quantum technologies might bring?</p>
+
+				<p>Topics that will be discussed include: </p>
+				<ul><li>What is Quantum theory?</li>
+					<li>What is Einstein's spooky action at a distance?</li>
+					<li>Quantum processes in nature</li>
+					<li>Quantum computers</li></ul>
+			</div>
+		</div>
+	</div>
+
+	<div layout="column" layout-align="space-between" layout-sm="column" layout-wrap layout-margin >
+		<div layout="row" layout-align="space-between center" layout-sm="column">	
+
+			<div flex-order-sm="2" class="col-sm-8">
+				<h2>Build Your Own Webpage <author>--- <a href="mailto:ai.roswell@gmail.com">Yiwen Pan</a></author></h2>
+				
+				<p>Have you ever hoped to express yourself, promote ideas, impress employers, and/or surprise your fiends?<br>==> Learn how to build your own personal webpage!<br>
+				You will learn how to create <a href="http://buildawebsite.byethost17.com/">a webpage like this</a>, in 60 minutes.
+					<ul>
+						<li>No previous programming experience required, great for beginners!</li>
+						<li>Will introduce basics of HTML and CSS.</li>
+						<li>Step by step walk through of writing a webpage from scratch.</li>
+						<li>Will demonstrate how to put a website online using FREE host.</li>
+					</ul>
+				<p><a href="https://drive.google.com/open?id=0B3xdy327Fj8GSUpPV3hGUnpRUkxCeGh6WTFZZDdYdnUwdG9V&authuser=0">PDF overview</a> - <a href="https://drive.google.com/open?id=0B3xdy327Fj8GYUw3YjE4MzNhTW1ITDFFX1QwY00zV2pwd0Jr&authuser=0">PDF detail</a> - <a href="https://drive.google.com/open?id=0B3xdy327Fj8GYVRGQlpJZDVtRDZsdm9KZmg5NU1nNTUwZUIw&authuser=0">Tutorial Download</a></p>
+			</div>
+
+			<a flex-order-sm="1" href="event_history/build_a_website.png" target="_blank">
+				<img src="images/build_a_website_pic.png" alt="Event:build_a_website.jpg" style="height:200px;width:280px;border: 1px solid lightgrey; border-radius:15px;">
+			</a>
+
+		</div>
+	</div>
+
+
+	<div layout="column" layout-align="space-between" layout-sm="column" layout-wrap layout-margin >
+		<div layout="row" layout-align="space-between center" layout-sm="column">	
+
+			<a href="event_history/Matlab_plotting.png" target="_blank">
+				<img src="images/01_introduction.png" alt="Event: Matlab_plotting_mini_workshop" style="height:200px;width:280px;border: 1px solid lightgrey; border-radius:15px;">
+			</a>
+
+			<div class="col-sm-8">
+				<h2>Matlab Plotting Mini-workshop <author>--- <a href="mailto:yuanyao.or.john@gmail.com">John Yao</a></author></h2>
+				
+				<p>A guided tour from the basic figures to very fancy ones, with reusable automated MATLAB script templates! Topics include:
+				</p>
+				<ul>
+				<li>Basics about plotting and saving images (lines, markers, colors, size, etc)</li>
+				<li>Multiple plots</li>
+				<li>3D surface & contour plots and contour slices</li>
+				<li>2D Heat map</li>
+				<li>Useful Tips and Tricks</li>
+				</ul>
+				<p><a href="https://drive.google.com/file/d/0B3xdy327Fj8GTklNRTFyQmN4NVE/view?usp=sharing">Template Download</a> - <a href="http://www.youtube.com/playlist?list=PLi2lWuI3Qlg0B8ZTlmPEU7S9mvJOgOKFA">YouTube playlist</a></p>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- the following commented out section use pure bootstrap col- to reach alignment, but not working as well as the above ones which combine layout from angular material and bootstrap columns; the most tricky part are still verticall alignment, which can only achieved by layout-align="xxx center" -->
+	<!-- 	<div class="row"  style="background-color:lavenderblush;border-radius:10px;">	
+		<div class="col-sm-4">
+			<a  style="margin:0px auto; width:270px; display:block;" href="event_history/quantum_computing_poster5.png" target="_blank">
+				<img src="event_history/quantum_computing_poster5.png" alt="Event: Demystifying the Quantum" style="height:200px;border-radius:10%;">
+			</a>
+		</div>
+		<div class="col-sm-8">
+			<h2>Demystifying the Quantum <author>--- You Quan Chong</author></h2>
+
+			<p>Ever had burning questions on what quantum physics really is? Ever wondered about what quantum technologies might bring?</p>
+
+			<p>Topics that will be discussed include: </p>
+			<ul><li>What is Quantum theory?</li>
+				<li>What is Einstein's spooky action at a distance?</li>
+				<li>Quantum processes in nature</li>
+				<li>Quantum computers</li></ul>
+			</div>
+		</div> -->
+	<hr>
+	<br><br><br><br><br>
+</section> 
+
+
+
+<!-- bottom bar ------------------------------------------------- -->
+
+<nav class="row navbar navbar-bottom theme_bc white_wc" style="border-radius:0px;margin:0px -15px 0px -15px;">
+	<div layout='row' layout-align='space-between center'>
+		<a class="white_wc" style="font-size:18px;" href="mailto:xchange.coop@gmail.com">Email: xchange.coop@gmail.com</a>
+		<div>
+			<ul class="nav navbar-nav">
+				<li><a class="white_wc" style="font-size:20px;" href="https://www.facebook.com/Xchange.Coop?ref=hl">Facebook</a></li>
+				<!-- <li><a class="white_wc" style="font-size:20px;" href="#">Forum</a></li> -->
+			</ul>
+		</div>
+	</div>
+</nav>
+
+
+</div> <!-- end the whole container from the very top -->
+
+
+
+
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+
+
+			<!-- Angular Material Dependencies -->
+			<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.6/angular.min.js"></script>
+			<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.6/angular-animate.min.js"></script>
+			<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.6/angular-aria.min.js"></script>
+
+
+			<!-- Angular Material Javascript now available via Google CDN; version 0.7 used here -->
+			<script src="http://ajax.googleapis.com/ajax/libs/angular_material/0.7.0/angular-material.min.js"></script>
+
+
+
+
+
 </body>
 </html>
