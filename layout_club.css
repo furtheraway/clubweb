@@ -1,0 +1,51 @@
+.img-profile {
+	border-radius: 10px; 
+	width: 250px;
+	display:block;
+	margin:auto;
+}
+
+.img-gallery {
+    width:250px;
+    height:250px;
+    display:block;
+    margin:auto; 
+    border-radius: 10%;
+    border:2px solid lightgray;
+}
+
+.video_youtube {
+    width:240px; 
+    height:135px; 
+    display:block; 
+    margin:10px auto;
+}
+
+.div-bg-img-gallery{
+	width:250px;
+	height:250px;
+	border-radius:10%;
+    border:lightgray;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
