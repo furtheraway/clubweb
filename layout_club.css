@@ -1,6 +1,6 @@
 .img-profile {
-	border-radius: 10px; 
-	width: 250px;
+	border-radius: 10%; 
+	width: 300px;
 	display:block;
 	margin:auto;
 }
@@ -21,14 +21,30 @@
     margin:10px auto;
 }
 
-.div-bg-img-gallery{
-	width:250px;
-	height:250px;
-	border-radius:10%;
-    border:lightgray;
+.header_people {
+    height:40px;
+    font: bold;
+    font-size: large;
+    padding: 8px; 
+    margin: 0 -15px;
 }
 
+figcaption {
+    text-align: center; 
+}
 
+.color_border {
+    border: 3px solid royalblue;
+}
+
+.color_theme_reverse {
+    background-color: royalblue;
+    color: white;
+}
+
+.color_theme_reverse a {
+    color:white;
+}
 
 
 
