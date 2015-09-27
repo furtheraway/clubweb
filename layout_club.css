@@ -5,6 +5,15 @@
 	margin:auto;
 }
 
+.img-activities {
+    width:200px;
+    height:150px;
+    display:block;
+    margin:auto; 
+    border-radius: 10%;
+    border:2px solid lightgray;
+}
+
 .img-gallery {
     width:250px;
     height:250px;
